@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <head>
+<!--    <link rel="stylesheet" href="../../static/css/header_css/header.css" th:href="@{/css/header_css/header.css}"/>-->
+<!--    <link-->
+<!--    rel="stylesheet"-->
+<!--    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"-->
+<!--    />-->
+<!--    <script defer src="../../static/js/header_js/header.js" th:src="@{/js/header_js/header.js}"></script>-->
+  </head>
+    <header th:fragment="headerFragment">
+      <div class="header">
+        <div class="left-header">
+          <!-- <div class="hamburger-menu" id="hamburgerMenu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div> -->
+          <div class="logo-wrap">
+            <a href="../diary_html/diarypage.html" th:href="@{/diary}">
+              <img class="logo" src="../../static/img/header_img/logo.png" th:src="@{/img/header_img/logo.png}"/>
+            </a>
+          </div>
+        </div>
+        <div class="center-header">
+          <nav>
+            <ul>
+              <li>
+                <a class="active-menu" href="../diary_html/diarypage.html" th:href="@{/diary}" >diary</a>
+              </li>
+              <li>
+                <a href="../goal_html/goalpage/goalpage.html" class="none-acitve"
+                   th:href="@{/myduedate}"
+                  >myduedate</a>
+              </li>
+              <li>
+                <a href="../community_html/communitypage.html" class="none-acitve"
+                   th:href="@{/community}"
+                  >Community</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="right-menu">
+          <button class="mypage-btn material-symbols-outlined">
+            account_circle
+          </button>
+        </div>
+        <div class="mypage-menu-wrap" id="mypage-menu-wrap"><!--th:object="${userVO}"-->
+          <button class="close-btn" id="close-btn">×</button>
+          <div class="mypage-menu">
+            <span class="user-pic material-symbols-outlined" id="userPic">manage_accounts</span> <!--th:field="*{userPic}"-->
+          </div>
+          <div class="user-wrap">
+            <div class="user-id" id="userId">userId</div>  <!--th:field="*{userId}"-->
+            <div class="user-nick-name" id="userNickName">유저 닉네임</div> <!--th:field="*{userNickName}"-->
+          </div>
+          <div class="mypage-link-wrap">
+            <a href="../goal/goalpage/goalpage.html" class="goal-page"
+               th:href="@{/myduedate}"
+              ><img />Goal Page
+            </a>
+            <a href="../login_html/loginpage.html" class="log-out" th:href="@{/login}"> Log Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+<!--  </body>-->
+</html>

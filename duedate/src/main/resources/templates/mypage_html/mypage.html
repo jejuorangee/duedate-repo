@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +9,7 @@
     <link rel="stylesheet" href="../css/mypageCSS/mypage.css">
     <script defer src="../js/mypageJS/mypageJs.js"></script>
 </head>
-<body>
+<th:block layout:fragment="content">
     <main>
         <div id="modal">
             <div id="modal_body">
@@ -115,7 +117,7 @@
                     </div>
                 </div>
                 <div class="error-message" style="display: none;" id="passwordError">
-                    <img class="warning" src="../../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호는 6자리 이상이어야 합니다
+                    <img class="warning error-icon" src="../../login/images/warning.png" alt="Warning"> 비밀번호는 6자리 이상이어야 합니다
                 </div>
                 <br>
                 <div class="change_passwd_box_wrap">
@@ -127,7 +129,7 @@
                     </div>
                 </div>
                 <div class="error-message" style="display: none;" id="confirmPasswordError">
-                    <img class="warning" src="../../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호가 일치하지 않습니다
+                    <img class="warning error-icon" src="../../login/images/warning.png" alt="Warning"> 비밀번호가 일치하지 않습니다
                 </div>
                 <div id="change_passwd_btn_wrap">
                     <button id="change_passwd_btn" class="box_btn" onclick="validateForm()">비밀번호 변경</button>
@@ -140,5 +142,5 @@
             </div>
         </div>
     </main>
-</body> 
+</th:block>
 </html>

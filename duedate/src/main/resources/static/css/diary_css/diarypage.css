@@ -20,8 +20,13 @@ button {
   cursor: pointer;
 }
 
+input {
+  border: none;
+  background-color: transparent;
+}
+
 .material-symbols-outlined {
-  font-size: 30px !important;
+  font-size: 2rem !important;
 }
 
 .rightSectionWrap .material-symbols-outlined {
@@ -289,19 +294,6 @@ button {
   outline: none;
 }
 
-#submit {
-  width: 18%;
-  height: 30px;
-  float: right;
-  margin-left: 8px;
-}
-
-#cancel {
-  width: 18%;
-  height: 30px;
-  float: right;
-}
-
 /*  */
 .leftHamburger {
   margin-top: 0;
@@ -350,6 +342,31 @@ button {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+#submit {
+  width: 18%;
+  height: 30px;
+  float: right;
+  margin-left: 8px;
+}
+
+#cancel {
+  width: 18%;
+  height: 30px;
+  float: right;
+}
+
+.cancel-button, .submit-button{
+  background-color: #9FC2D1;
+  border-radius: 1rem;
+}
+
+
+.submit-button:hover, .cancel-button:hover{
+  background-color: #5F747D;
+  border-radius: 1rem;
+}
+
 
 /* leftCalendar */
 /*
@@ -564,13 +581,14 @@ button {
   color: #fff;
 }
 
-.rotate {
-  transform: rotate(180deg); /* 이미지 회전 */
-}
+/*.rotate {*/
+/*  transform: rotate(180deg); !* 이미지 회전 *!*/
+/*}*/
 .todo-wrap {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .check-todo {

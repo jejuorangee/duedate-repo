@@ -1,93 +1,102 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  /* font: inherit; */
-  vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+
+/*@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap");*/
+/*@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");*/
+/*html,*/
+/*body,*/
+/*div,*/
+/*span,*/
+/*applet,*/
+/*object,*/
+/*iframe,*/
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h4,*/
+/*h5,*/
+/*h6,*/
+/*p,*/
+/*blockquote,*/
+/*pre,*/
+/*a,*/
+/*abbr,*/
+/*acronym,*/
+/*address,*/
+/*big,*/
+/*cite,*/
+/*code,*/
+/*del,*/
+/*dfn,*/
+/*em,*/
+/*img,*/
+/*ins,*/
+/*kbd,*/
+/*q,*/
+/*s,*/
+/*samp,*/
+/*small,*/
+/*strike,*/
+/*strong,*/
+/*sub,*/
+/*sup,*/
+/*tt,*/
+/*var,*/
+/*b,*/
+/*u,*/
+/*i,*/
+/*center,*/
+/*dl,*/
+/*dt,*/
+/*dd,*/
+/*ol,*/
+/*ul,*/
+/*li,*/
+/*fieldset,*/
+/*form,*/
+/*label,*/
+/*legend,*/
+/*table,*/
+/*caption,*/
+/*tbody,*/
+/*tfoot,*/
+/*thead,*/
+/*tr,*/
+/*th,*/
+/*td,*/
+/*article,*/
+/*aside,*/
+/*canvas,*/
+/*details,*/
+/*embed,*/
+/*figure,*/
+/*figcaption,*/
+/*footer,*/
+/*header,*/
+/*hgroup,*/
+/*menu,*/
+/*nav,*/
+/*output,*/
+/*ruby,*/
+/*section,*/
+/*summary,*/
+/*time,*/
+/*mark,*/
+/*audio,*/
+/*video {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  border: 0;*/
+/*  font-size: 100%;*/
+/*  !* font: inherit; *!*/
+/*  vertical-align: baseline;*/
+/*}*/
 button {
   border: none;
   background-color: transparent;
@@ -108,9 +117,9 @@ nav,
 section {
   display: block;
 } */
-body {
-  font-family: "Montserrat", "Noto Sans KR", sans-serif;
-}
+/*body {*/
+/*  font-family: "Montserrat", "Noto Sans KR", sans-serif;*/
+/*}*/
 ol,
 ul {
   list-style: none;
@@ -130,10 +139,10 @@ q:after {
   border-collapse: collapse;
   border-spacing: 0;
 } */
-/* input {
+input {
   border: none;
   background-color: transparent;
-} */
+}
 
 .todo-list input {
   border: none;
@@ -233,9 +242,10 @@ a {
 .center-header nav ul li {
   margin-right: 24px;
 }
-.mypage-btn img {
-  width: 40px;
-  height: 40px;
+.mypage-btn{
+  font-size : 2.5rem !important;
+  /*width: 40px;*/
+  /*height: 40px;*/
 }
 .mypage-menu-wrap {
   display: none;
@@ -252,12 +262,22 @@ a {
 .mypage-menu-wrap.active-page {
   display: block;
 }
+
+.right-menu .mypage-btn{
+  font-size: 2.5rem !important;
+}
+
 .mypage-menu {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
+
+.mypage-menu .material-symbols-outlined{
+  font-size: 10rem !important;
+}
+
 .close-btn {
   position: absolute;
   top: 5px;
@@ -270,7 +290,7 @@ a {
 .close-btn:hover {
   color: #000;
 }
-.user-email {
+.user-id {
   text-align: center;
   font-size: 18px;
   margin-bottom: 16px;
@@ -287,3 +307,5 @@ a {
   padding: 0 40px;
   margin-bottom: 24px;
 }
+
+

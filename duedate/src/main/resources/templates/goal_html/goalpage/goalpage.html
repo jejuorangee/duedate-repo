@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +18,6 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="../../header/common.css" />
-    <script defer src="../../header/header.js"></script>
     <style>
       /* 밑줄 제거를 위한 CSS */
       .gj-datepicker input {
@@ -25,8 +25,6 @@
       }
     </style>
   </head>
-  <body>
-    <main>
       <script>
         $(document).ready(function () {
           var today = new Date();
@@ -40,63 +38,8 @@
           });
         });
       </script>
-      <header id="app-header">
-        <div class="header">
-          <div class="left-header">
-            <div class="logo-wrap">
-              <a href="./mainpage.html">
-                <img class="logo" src="../../header/img/logo.png"
-              /></a>
-            </div>
-          </div>
-          <div class="center-header">
-            <nav>
-              <ul>
-                <li>
-                  <a href="../../diary/diarypage.html" class="none-acitve"
-                    >Diary</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../../goal/goalpage/goalpage.html"
-                    class="active-menu"
-                    >MyDuedate</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../../community/html/communitypage.html"
-                    class="none-acitve"
-                    >Community</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="right-menu">
-            <button class="mypage-btn">
-              <img src="../../header/img/account.png" />
-            </button>
-          </div>
-          <div class="mypage-menu-wrap" id="mypage-menu-wrap">
-            <button class="close-btn" id="close-btn">×</button>
-            <div class="mypage-menu">
-              <img src="../../header/img/change.png" />
-            </div>
-            <div class="user-wrap">
-              <div class="user-email">email@email.com</div>
-              <div class="user-nick-name">유저 닉네임</div>
-            </div>
-            <div class="mypage-link-wrap">
-              <a href="../../goal/goalpage/goalpage.html" class="goal-page"
-                ><img />Goal Page</a
-              >
-              <a href="../../login/loginpage.html" class="log-out"> Log Out</a>
-            </div>
-          </div>
-        </div>
-      </header>
+<th:block layout:fragment="content">
+    <main>
       <div class="box_title_wrap">
         <div claas="h1_wrap">
           <h1 class="task_h1">MyDuedate</h1>
@@ -203,5 +146,5 @@
         </div>
       </div>
     </main>
-  </body>
+</th:block>
 </html>

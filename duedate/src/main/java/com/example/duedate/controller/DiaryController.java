@@ -19,7 +19,10 @@ public class DiaryController {
 
     private final DiaryService diaryService;
 
-
+    @GetMapping("")
+    public String diary(){
+        return "diary_html/diarypage";
+    }
 
     //일기 작성 -> 일기 상세
 
