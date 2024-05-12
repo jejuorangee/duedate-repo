@@ -1,67 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../css/community_css/write.css" />
-    <link rel="stylesheet" href="../../css/header_css/common.css" />
-    <script defer src="../../js/header_js/header.js"></script>
   </head>
-  <body>
-    <header id="app-header">
-      <div class="header">
-        <div class="left-header">
-          <div class="logo-wrap">
-            <a href="../../templates/diary_html/diarypage.html">
-              <img class="logo" src="../logo.png"
-            /></a>
-          </div>
-        </div>
-        <div class="center-header">
-          <nav>
-            <ul>
-              <li>
-                <a href="../../templates/diary_html/diarypage.html" class="none-acitve"
-                  >Diary</a
-                >
-              </li>
-              <li>
-                <a href="../../templates/goal_html/goalpage/goalpage.html" class="none-acitve"
-                  >MyDuedate</a
-                >
-              </li>
-              <li>
-                <a href="../../templates/cummunity_html/communitypage.html" class="active-menu"
-                  >Community</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="right-menu">
-          <button class="mypage-btn">
-            <img src="../../header/img/account.png" />
-          </button>
-        </div>
-        <div class="mypage-menu-wrap" id="mypage-menu-wrap">
-          <button class="close-btn" id="close-btn">×</button>
-          <div class="mypage-menu">
-            <img src="../../header/img/change.png" />
-          </div>
-          <div class="user-wrap">
-            <div class="user-email">email@email.com</div>
-            <div class="user-nick-name">유저 닉네임</div>
-          </div>
-          <div class="mypage-link-wrap">
-            <a href="../../goal/goalpage/goalpage.html" class="goal-page"
-              ><img />Goal Page</a
-            >
-            <a href="../../login/loginpage.html" class="log-out"> Log Out</a>
-          </div>
-        </div>
-      </div>
-    </header>
+<th:block layout:fragment="content">
     <div class="main-text">write</div>
     <div class="form">
       <form>
@@ -92,6 +39,5 @@
         <div><input type="submit" class="submit" value="등록" /></div>
       </form>
     </div>
-    <footer>푸터입니다.</footer>
-  </body>
+</th:block>
 </html>

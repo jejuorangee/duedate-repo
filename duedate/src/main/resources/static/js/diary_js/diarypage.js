@@ -52,7 +52,10 @@ const renderCalendar = () => {
         currYear === new Date().getFullYear()
             ? "active"
             : "";
-    divLiTag += `<div id="dayOf${i}" class="day"><li class="${isToday}">${i}</li><span class="newDiaryEmo${i}"></span><a class"${isToday}" class"newTodo"></a></div>`;
+    divLiTag += `<div id="dayOf${i}" class="day"><li class="${isToday}">${i}</li>
+        <span class="DiaryEmo${i}"></span>
+        <a class"${isToday}" class"newTodo"></a>
+        </div>`;
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
@@ -114,32 +117,6 @@ showCalendarbtn.addEventListener("click", function () {
   }
 });
 // ----------------------------------------------------------------------------------------------------------------------------------------
-
-//-------------------------------------------------큰 달력의 날짜 클릭 시 해당 날짜 가지고 일기장으로 넘기기------------------------------------------
-
-// 큰달력 div에 onclick으로 넣음
-// function selectDay(day) {
-//   let selectDate = currYear + "-" + (currMonth + 1) + "-" + day;
-//   for (let i = 1; i <= 31; i++) {
-//     // console.log(selectDate);
-//     if (
-//         selectDate <=
-//         currYear + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-//     ) {
-//       selectDateNgoTodo.value = selectDate;
-//       selectDateNgo.value = selectDate;
-//       if (myDiary.style.display == "none") {
-//         myDiary.style.display = "";
-//         diaryCalender.style.display = "none";
-//       }
-//     } else {
-//       alert("오늘까지의 일기를 작성해 주세요");
-//       break;
-//       // myDiary.style.display = 'none';
-//       // diaryCalender.style.display = '';
-//     }
-//   }
-// }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // 일기장 유효성 검사
@@ -205,85 +182,6 @@ cancel.addEventListener("click", () => {
   alert("일기장 작성 취소");
   writeDiaryForm.reset();
 });
-
-// mypage menu--------------------
-document.querySelector(".mypage-btn").addEventListener("click", function () {
-  document.getElementById("mypage-menu-wrap").classList.toggle("active-page");
-});
-
-document.querySelector(".close-btn").addEventListener("click", function () {
-  document.getElementById("mypage-menu-wrap").classList.remove("active-page");
-});
-
-document.addEventListener("click", function (event) {
-  var menu = document.getElementById("mypage-menu-wrap");
-  var target = event.target;
-  var isMenuButton =
-      target.matches(".mypage-btn") || target.closest(".mypage-btn");
-  var isMenu =
-      target.matches(".mypage-menu-wrap") || target.closest(".mypage-menu-wrap");
-  var isCloseButton = target.matches(".close-btn");
-
-  if (!isMenuButton && !isMenu && !isCloseButton) {
-    menu.classList.remove("active-page");
-  }
-});
-
-//-------------------------------------------------------- 작은 달력 -------------------------------------------------------------------
-
-// const leftCurrentDate = document.querySelector('.leftCurrent-date');
-// const leftDaysTag = document.querySelector(".leftDays");
-// const leftPrevNextBtn = document.querySelectorAll(".leftCalendarMonth button");
-// const leftGoToday = document.querySelector(".leftTodayButton");
-
-// const renderLeftCalendar = () => {
-//   let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
-//   let lastDateofMonth = new Date(currYear, currMonth + 1,0).getDate();
-//   let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
-//   let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-//   let liTag = '';
-
-//   for (let i = firstDayofMonth; i > 0; i--) {
-//     liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-//   }
-
-//   for (let i = 1; i <= lastDateofMonth; i++){
-//     let isToday = i === date.getDate() && currMonth === new Date().getMonth()
-//                   && currYear === new Date().getFullYear() ? "leftActive" : "";
-//     liTag += `<li class="${isToday}">${i}</li>`;
-//   }
-
-//   for (let i = lastDayofMonth; i < 6; i++) {
-//     liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-//   }
-
-//   leftCurrentDate.innerText = `${currYear}🍔0${currMonth +1}`;
-//   leftDaysTag.innerHTML = liTag;
-// }
-// renderLeftCalendar();
-
-// leftPrevNextBtn.forEach(lbtn => {
-//   lbtn.addEventListener("click", () =>{
-//     currMonth = lbtn.id === "prev" ? currMonth -1 : currMonth + 1;
-
-//     if(currMonth < 0 || currMonth > 11){
-//       date = new Date(currYear, currMonth);
-//       currYear = date.getFullYear();
-//       currMonth = date.getMonth();
-//     }else{
-//       date = new Date();
-//     }
-//     renderLeftCalendar();
-//   });
-// });
-
-// leftGoToday.addEventListener("click", () =>{
-//   date = new Date();
-//   currYear = date.getFullYear();
-//   currMonth = date.getMonth();
-//   renderLeftCalendar();
-// });
-
 // ------------------------------------------------------------------------------------------------------------------------------------
 // todolist------------------------------
 
@@ -389,7 +287,7 @@ function addNewTodoList(event) {
   });
 }
 //달력에 todolist 추가하기
-const newDiaryEmo = document.querySelectorAll(".days span");
+const DiaryEmo = document.querySelectorAll(".days span");
 const newTodo = document.querySelectorAll(".days a");
 const dayof = document.querySelectorAll(".day");
 // const leftCalDiarychk = document.querySelectorAll(".leftDays li")
