@@ -29,9 +29,9 @@ public class PostServiceImp implements PostService{
 
     @Override
     public PostsDTO selectPostDetail(Long postId , UserVO userVO) {
-        String borderUserID = postMapper.selectPostDetail(postId).getUserId();
+        String borderUserEmail = postMapper.selectPostDetail(postId).getUserId();
 
-        if(userVO.getUserNumber()==null || !userVO.getUserId().equals(borderUserID)){
+        if(userVO.getUserNumber()==null || !userVO.getUserEmail().equals(borderUserEmail)){
             postMapper.plusViews(postId);
         }
         return postMapper.selectPostDetail(postId);

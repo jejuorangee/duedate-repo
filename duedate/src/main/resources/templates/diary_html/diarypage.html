@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../static/css/diary_css/diarypage.css"
         th:href="@{/css/diary_css/diarypage.css}"/>
-<!--  <link-->
-<!--    rel="stylesheet"-->
-<!--    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"-->
-<!--  />-->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
   <script defer src="../../static/js/diary_js/diarypage.js" th:src="@{/js/diary_js/diarypage.js}"></script>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -96,6 +96,7 @@
               </button>
             </div>
           </div>
+
           <div class="check-todo-wrap"></div>
         </div>
         <div class="todo-list">
@@ -135,6 +136,7 @@
           <div class="check-todo-wrap"></div>
         </div>
       </section>
+
       <!-- 일기장 || 큰달력 -->
       <div class="rightSectionWrap">
         <div class="diaryTopWrap">
@@ -162,13 +164,13 @@
           <div class="rightCalender">
             <div class="rightCalendardate">
               <ul class="weeks">
-                <div><li>Sun</li></div>
-                <div><li>Mon</li></div>
-                <div><li>Tue</li></div>
-                <div><li>Wed</li></div>
-                <div><li>Thu</li></div>
-                <div><li>Fri</li></div>
-                <div><li>Sat</li></div>
+                <div class="week"><li>Sun</li></div>
+                <div class="week"><li>Mon</li></div>
+                <div class="week"><li>Tue</li></div>
+                <div class="week"><li>Wed</li></div>
+                <div class="week"><li>Thu</li></div>
+                <div class="week"><li>Fri</li></div>
+                <div class="week"><li>Sat</li></div>
               </ul>
               <ul class="days"></ul>
             </div>
@@ -179,7 +181,8 @@
           <!-- style="display: none;" -->
           <div class="diaryOrCalendar">✨일기장🎉</div>
           <div class="writeDiarySection">
-            <form id="insertDiary" class="writeDiaryForm" action="/diary/writeDiary" method="post">
+            <form id="insertDiary" class="writeDiaryForm"
+                  th:action="@{/diary/writeDiary}" method="post">
               <div class="myDiaryTop">
                 <div class="myDiaryDateWrap">
                   <div>날짜 :</div>
@@ -204,7 +207,8 @@
                 <input type="text" id="myDiaryTitle" name="diaryTitle" class="myDiaryTitle" placeholder="제목 (최대 17글자)" maxlength="17" required/>
               </div>
               <div class="myDiaryDetailWrap">
-                <textarea id="diaryDetail" class="myDiaryDetail" name="diaryContent" placeholder="최대 70글자까지 작성 가능합니다" maxlength="70" required></textarea>
+                <textarea id="diaryDetail" class="myDiaryDetail" name="diaryContent" placeholder="최대 70글자까지 작성 가능합니다" maxlength="70" required>
+                </textarea>
               </div>
               <input type="submit" id="submit" class="submit-button" value="저장" name="제출버튼"/>
               <input type="button" id="cancel" class="cancel-button" value="작성 취소" />

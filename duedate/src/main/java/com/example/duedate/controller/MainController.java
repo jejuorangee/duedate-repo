@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class MainController {
 
+    @GetMapping("/duedate")
+    public String index(){
+        return "login_html/loginpage";
+    }
+
     @GetMapping("/myduedate")
     public String goal(){
         return "goal_html/goalpage/goalpage";
@@ -17,11 +22,6 @@ public class MainController {
     @GetMapping("/community")
     public String community(){
         return "community_html/communitypage";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "login_html/loginpage";
     }
 
     @GetMapping("/reset")
@@ -34,9 +34,11 @@ public class MainController {
         return "login_html/registerpage";
     }
 
-    @GetMapping("/mypage")
+    @GetMapping("/myPage")
     public String myp(){
         return "mypage_html/mypage";
     }
+
+
 }
 

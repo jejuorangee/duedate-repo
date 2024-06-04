@@ -1,107 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up Form</title>
-<link rel="stylesheet" href="koregisterpage.css">
-<script src="registerpage.js"></script>
+
+<link
+  rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<link rel="stylesheet" href="../../static/css/login_css/koregisterpage.css"
+      th:href="@{/css/login_css/koregisterpage.css}">
+<!--<script src="../../static/js/login_js/registerpage.js"-->
+<!--        th:src="@{/js/login_js/registerpage.js}"></script>-->
 </head>
 <body>
+  <div class="app">
+    <div class="signup">
+      <h1>SIGN UP</h1>
+      <h3>간편 회원 가입</h3>
+      <div class="social-login">
+        <div class="social-box : naver">
+          <a href="https://www.naver.com" target="_blank">
+            <img src="../../static/img/login_img/naver.png"
+                 th:src="@{/img/login_img/naver.png}" alt="Naver">
+          </a>
+        </div>
+        <div class="social-box : kakao">
+          <a href="https://www.kakao.com" target="_blank">
+            <img src="../../static/img/login_img/kakao.png"
+                 th:src="@{/img/login_img/kakao.png}" alt="Kakao">
+          </a>
+        </div>
+        <div class="social-box : google">
+          <a href="https://www.google.com" target="_blank">
+            <img src="../../static/img/login_img/google.png"
+                 th:src="@{/img/login_img/google.png}" alt="Google">
+          </a>
+        </div>
+      </div>
 
-<div class="signup">
-  <h1>SIGN UP</h1>
-  <h3>간편 회원 가입</h3>
-  <div class="social-login">
-    <div class="social-box : naver">
-      <a href="https://www.naver.com" target="_blank">
-        <img src="../login/images/naver.jpeg" alt="Naver">
-      </a>
+      <div class="separator">
+        <div class="line"></div>
+        <p class="ortext">or</p>
+        <div class="line"></div>
+      </div>
+
+      <form id="signupForm" onsubmit="return validateForm()" th:action="@{/user/regist}" method="post">
+        <input type="text" id="userName" name="userName" placeholder="User name" autoComplete="off" required  />
+        <div class="nickname-form">
+          <input type="text" id="userNickName" name="userNickName" placeholder="Nickname" autoComplete="off" required>
+<!--          <button type="button" class="nicknameverify-button" >중복검사</button>-->
+          <div class="error-message" style="display: none;" id="nicknameError">
+            <span class="material-symbols-outlined error-icon">error</span>
+            <span class="nickname-result"></span>
+          </div>
+    <!--      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 이미 가입된 닉네임입니다-->
+        </div>
+        <input type="text" id="userPic" name="userPic" value="프로필사진" style="display: none">
+        <div class="form">
+          <input type="email" id="userEmail" name="userEmail" placeholder="Email" autoComplete="off" required />
+          <button type="button" class="emailverify-button">이메일 인증</button>
+          <div class="emailerror-message" style="display: none;" id="emailError">
+            <span class="material-symbols-outlined error-icon">error</span> 이미 가입된 이메일입니다
+    <!--        <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 이미 가입된 이메일입니다-->
+          </div>
+        </div>
+
+        <div class="form">
+          <input type="text" id="verificationCode" placeholder="인증번호 입력" required>
+          <div class="error-message" style="display: none;" id="verificationError">
+            <span class="material-symbols-outlined error-icon">error</span> 인증번호를 확인해주세요
+    <!--        <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 인증번호를 확인해주세요-->
+          </div>
+          <div class="buttonCss">
+            <button type="button" class="reverify-button" disabled>인증번호 재전송</button>
+            <button type="button" class="confirmverify-button">인증번호 확인</button>
+          </div>
+        </div>
+
+        <div class="password-form">
+          <input type="password" id="userPassword" name="userPassword" placeholder="Password" required>
+          <span class="material-symbols-outlined password-icon"
+                onclick="togglePasswordVisibility('userPassword', this)">visibility</span>
+          <div class="error-message" style="display: none;" id="passwordError">
+            <span class="material-symbols-outlined error-icon">error</span> 비밀번호는 6자리 이상이어야 합니다
+      <!--      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호는 6자리 이상이어야 합니다-->
+          </div>
+        </div>
+
+        <div class="confirm-password-form">
+          <input type="password" id="confirmPassword" placeholder="Confirm your Password" required>
+          <span class="material-symbols-outlined password-icon"
+                onclick="togglePasswordVisibility('confirmPassword', this)">visibility</span>
+          <div class="error-message" style="display: none;" id="confirmPasswordError">
+            <span class="material-symbols-outlined error-icon">error</span> 비밀번호가 일치하지 않습니다
+      <!--      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호가 일치하지 않습니다-->
+          </div>
+        </div>
+
+        <div class="birthday-select">
+          <label for="birthday-month">Date Of Birth</label>
+          <select id="birthday-month" name="birthday-month">
+            <option value="" selected hidden>선택</option>
+          </select>월
+          <select id="birthday-day" name="birthday-day">
+            <option value="" selected hidden>선택</option>
+          </select>일
+          <select id="birthday-year" name="birthday-year">
+            <option value="" selected hidden>선택</option>
+          </select>년
+          <input type="text" id="userBirthday" name="userBirthday" value="" style="display: none">
+        </div>
+
+        <div class="checkbox">
+          <label class="checkbox-container">
+            <input type="checkbox" id="service-terms" name="service-terms" required>
+            <span class="checkbox-label">[필수]서비스 이용약관</span>
+          </label>
+          <label class="checkbox-container">
+            <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+            <span class="checkbox-label">[필수]개인정보 수집 · 이용 동의</span>
+          </label>
+          <label class="checkbox-container">
+            <input type="checkbox" id="third-party" name="third-party">
+            <span class="checkbox-label">[선택]제3자 마케팅 정보 수신 동의</span>
+          </label>
+<!--          <label class="checkbox-container">-->
+<!--            <input type="checkbox" id="age-confirmation" name="age-confirmation" required>-->
+<!--            <span class="checkbox-label">[필수] 14세 이상입니다</span>-->
+<!--          </label>-->
+        </div>
+
+        <button type="submit" class="signup-button">SIGN UP</button>
+      </form>
+      <p class="signinAsk">이미 계정이 있나요 <a href="../login_html/loginpage.html"
+          th:href="@{/login}">Sign In</a></p>
     </div>
-    <div class="social-box : kakao">
-      <a href="https://www.kakao.com" target="_blank">
-        <img src="../login/images/kakao.png" alt="Kakao">
-      </a>
-    </div>
-    <div class="social-box : google">
-      <a href="https://www.google.com" target="_blank">
-        <img src="../login/images/google.png" alt="Google">
-      </a>
-    </div>
+
+    <script src="registerpage.js" th:src="@{/js/login_js/registerpage.js}"></script>
   </div>
-
-  <div class="separator">
-    <div class="line"></div>
-    <p class="ortext">or</p>
-    <div class="line"></div>
-  </div>
-
-  <form id="signupForm" onsubmit="return validateForm()">
-    <input type="text" id="username" placeholder="User name" required >
-    <input type="text" id="nickname" placeholder="Nickname" required>
-    <div class="error-message" style="display: none;" id="nicknameError">
-      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 이미 가입된 닉네임입니다
-    </div>
-
-    <div class="form">
-      <input type="email" id="email" placeholder="Email" required>
-      <button type="button" class="emailverify-button" onclick="checkEmail()">이메일 인증번호 받기</button>
-      <div class="emailerror-message" style="display: none;" id="emailError">
-        <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 이미 가입된 이메일입니다
-      </div>
-    </div>
-
-    <div class="form">
-      <input type="text" id="verificationCode" placeholder="인증번호 입력" required>
-      <div class="error-message" style="display: none;" id="verificationError">
-        <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 인증번호를 확인해주세요
-      </div>
-      <div class="buttonCss">
-        <button type="button" class="reverify-button">인증번호 재전송</button>
-        <button type="button" class="confirmverify-button">인증번호 확인</button>
-      </div>
-    </div>
-
-    <input type="password" id="password" placeholder="Password" required>
-    <div class="error-message" style="display: none;" id="passwordError">
-      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호는 6자리 이상이어야 합니다
-    </div>
-    <input type="password" id="confirmPassword" placeholder="Confirm your Password" required>
-    <div class="error-message" style="display: none;" id="confirmPasswordError">
-      <img src="../login/images/warning.png" alt="Warning" class="error-icon"> 비밀번호가 일치하지 않습니다
-    </div>
-
-    <div class="birthday-select">
-      <label for="birthday-month">Date Of Birth</label>
-      <select id="birthday-month" name="birthday-month"></select>
-      <select id="birthday-day" name="birthday-day"></select>
-      <select id="birthday-year" name="birthday-year"></select>
-    </div>
-
-    <div class="checkbox">
-      <label class="checkbox-container">
-        <input type="checkbox" id="service-terms" name="service-terms">
-        <span class="checkbox-label">[필수]서비스 이용약관</span>
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" id="privacy-policy" name="privacy-policy">
-        <span class="checkbox-label">[필수]개인정보 수집 · 이용 동의</span>
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" id="third-party" name="third-party">
-        <span class="checkbox-label">[필수]제3자 마케팅 정보 수신 동의</span>
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" id="age-confirmation" name="age-confirmation">
-        <span class="checkbox-label">[필수] 14세 이상입니다</span>
-      </label>
-    </div>
-
-    <button type="submit" class="signup-button">SIGN UP</button>
-  </form>
-  <p class="signinAsk">이미 계정이 있나요 <a href="../login/loginpage.html">Sign In</a></p>
-</div>
-
-<script src="registerpage.js"></script>
 </body>
+<!--<script>-->
+
+<!--  $('#userNickName').on("propertychange chang keyup paste input", function (){-->
+
+<!--    let tmpNick = $('#userNickName').val();-->
+<!--    // console.log(tmpNick);-->
+<!--    let userNickName = {tmpNick : tmpNick}-->
+<!--    // console.log(userNickName);-->
+
+<!--    $.ajax({-->
+<!--      type : "post",-->
+<!--      url : "/user/userNickChk",-->
+<!--      data :userNickName,-->
+<!--      success : function (result){-->
+<!--        console.log(result);-->
+<!--        if(result != "fail"){-->
+<!--          $("#nicknameError").css({"display": "block", "color": "green"});-->
+<!--          $(".nickname-result").text("사용가능한 닉네임입니다");-->
+<!--        }else{-->
+<!--          $("#nicknameError").css({"display": "block", "color": "red"});-->
+<!--          $(".nickname-result").text("이미 가입된 닉네임입니다");-->
+<!--        }-->
+<!--      }-->
+<!--    });-->
+<!--    // alert(JSON.stringify(userNickName));-->
+<!--  })-->
+<!--</script>-->
 </html>

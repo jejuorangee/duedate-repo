@@ -24,7 +24,7 @@ public class PostMapperTest {
     public void  selectAllTest(){
         PostVO postVO = new PostVO();
         System.out.println(postVO.getPostId());
-        System.out.println(postVO.getUserId());
+        System.out.println(postVO.getUserEmail());
         System.out.println(postVO.getPostContent());
 
     }
