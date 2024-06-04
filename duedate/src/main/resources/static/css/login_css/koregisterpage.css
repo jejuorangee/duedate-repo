@@ -12,14 +12,25 @@ h3 {
   font-size: 16px;
 }
 
-body {
+/*body {*/
+/*  font-family: 'Arial', sans-serif;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  min-height: 100vh;*/
+/*  overflow: auto;*/
+/*}*/
+
+.app{
   font-family: 'Arial', sans-serif;
+  background: #fff;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  overflow: auto;
 }
 
 /*이 페이지의 전체적인 너비, 배경 조정하는 부분, 여기 없으면 옆으로 쫙 늘어남*/
@@ -130,7 +141,7 @@ body {
     padding: 10px 0;
     border: none;
     border-bottom: 1px solid #ccc;
-    margin-top: 5px;
+    margin-top: .5rem;
   }
   
   input[type="text"]:focus,
@@ -141,7 +152,15 @@ body {
     border-bottom: 2px solid #555;
   }
 
-  /*이메일 인증확인 버튼*/
+  /*닉네임 중복체크*/
+ /*#nicknameError{*/
+ /*  display: block;*/
+ /*}*/
+
+
+
+
+/*이메일 인증확인 버튼*/
   .emailverify-button {
     padding: 10px 15px;
     width : 32vh;
@@ -192,6 +211,22 @@ body {
     background-color: #333;
   }
 
+.password-form{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.confirm-password-form{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.password-icon{
+  position: absolute;
+  margin-top:1rem;
+  cursor:pointer;
+}
+
   /*체크 박스 부분*/
   .checkbox{
     display: flex;
@@ -232,7 +267,7 @@ body {
     border-radius: 8%;
     border-color: black;
     border-width: 2px;
-    margin-right: 20px; 
+    /*margin-right: 20px; */
   }
 
 

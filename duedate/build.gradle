@@ -29,6 +29,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
+    //이메일 인증 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.6.3'
+
+    //redis 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
 //    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 //    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'

@@ -3,7 +3,18 @@ h3 {
   font-weight: lighter;
 }
 
-body {
+/*body {*/
+/*  font-family: 'Arial', sans-serif;*/
+/*  background: #fff;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  min-height: 100vh;*/
+/*}*/
+
+.app{
   font-family: 'Arial', sans-serif;
   background: #fff;
   margin: 0;
@@ -26,13 +37,15 @@ body {
   cursor: pointer;
   height: 2em;
   width: auto;
+  right: 0rem;
+  bottom: -1rem;
 }
-.password-icon.visible {
-  right: 0em;
-}
-.password-icon.hide {
-  right: -3em;
-}
+/*.password-icon.visible .password-icon.hide {*/
+/*  right: 0rem;*/
+/*}*/
+/*.password-icon.hide {*/
+/*  right: -3em;*/
+/*}*/
 .password-CSS input[type="password"] {
   padding-right: 5em;
 }
@@ -46,8 +59,10 @@ body {
   position: relative;
   margin-bottom: 20px;
 }
+
 .formCss input[type="email"],
-.formCss input[type="password"] {
+.formCss input[type="password"],
+.formCss input[type="text"]{
   width: 100%;
   padding: 10px;
   border: none;
@@ -60,6 +75,8 @@ body {
   font-size: 0.8em;
   margin-top: 20px;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .underline{

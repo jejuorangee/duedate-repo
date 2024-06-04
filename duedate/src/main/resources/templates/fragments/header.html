@@ -30,7 +30,7 @@
           <nav>
             <ul>
               <li>
-                <a class="active-menu" href="../diary_html/diarypage.html" th:href="@{/diary}" >diary</a>
+                <a class="active-menu" href="../diary_html/diarypage.html" th:href="@{/diary}">diary</a>
               </li>
               <li>
                 <a href="../goal_html/goalpage/goalpage.html" class="none-acitve"
@@ -50,21 +50,19 @@
             account_circle
           </button>
         </div>
-        <div class="mypage-menu-wrap" id="mypage-menu-wrap"><!--th:object="${userVO}"-->
+        <div class="mypage-menu-wrap" id="mypage-menu-wrap">
           <button class="close-btn" id="close-btn">×</button>
           <div class="mypage-menu">
-            <span class="user-pic material-symbols-outlined" id="userPic">manage_accounts</span> <!--th:field="*{userPic}"-->
+            <span class="user-pic material-symbols-outlined" id="userPic">manage_accounts</span>
           </div>
           <div class="user-wrap">
-            <div class="user-id" id="userId">userId</div>  <!--th:field="*{userId}"-->
-            <div class="user-nick-name" id="userNickName">유저 닉네임</div> <!--th:field="*{userNickName}"-->
+            <div class="user-id" id="userId" th:text="${session.LoginUser['userEmail']}">userId</div>
+            <div class="user-nick-name" id="userNickName" th:text="${session.LoginUser['userNickName']}">유저 닉네임</div>
           </div>
           <div class="mypage-link-wrap">
-            <a href="../goal/goalpage/goalpage.html" class="goal-page"
-               th:href="@{/myduedate}"
-              ><img />Goal Page
-            </a>
-            <a href="../login_html/loginpage.html" class="log-out" th:href="@{/login}"> Log Out</a>
+            <a href="../mypage_html/mypage.html" class="goal-page"
+               th:href="@{/myPage}">My Page</a>
+            <a class="log-out" th:href="@{/user/logout}"> Log Out</a> <!--href="../login_html/loginpage.html"-->
           </div>
         </div>
       </div>

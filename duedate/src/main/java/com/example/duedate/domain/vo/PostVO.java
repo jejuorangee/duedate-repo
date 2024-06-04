@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class PostVO {
         private Long postId;
         private Long userNumber;
-        private String userId;
+        private String userEmail;
         private String postTitle;
         private String postContent;
         private int postViews;

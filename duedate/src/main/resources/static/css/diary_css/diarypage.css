@@ -136,7 +136,7 @@ input {
   border-bottom: 2px solid black;
 }
 
-.rightCalendardate .days div {
+.rightCalendardate .days .day {
   height: 8rem;
   width: calc(100% / 7);
   position: relative;
@@ -145,11 +145,11 @@ input {
   /* cursor: pointer; */
 }
 
-.rightCalendardate .days div:last-child {
+.rightCalendardate .days .day:last-child {
   border-right: 1px solid #aaa;
 }
 
-.rightCalendardate .days div:nth-child(7n) {
+.rightCalendardate .days .day:nth-child(7n) {
   border-right: 1px solid #aaa;
 }
 
@@ -174,9 +174,10 @@ input {
 
 .day span {
   display: block;
-  font-size: 2rem;
-  float: right;
-  margin-top: 41%;
+}
+
+.hidden__content{
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------------------------------------------------------- */

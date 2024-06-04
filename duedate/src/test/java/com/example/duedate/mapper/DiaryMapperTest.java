@@ -29,6 +29,8 @@ class DiaryMapperTest {
         diaryVO.setDiaryEmo("🍔");
         diaryVO.setDiaryTitle("안녕하세요");
         diaryVO.setDiaryContent("반값습니다");
+        diaryVO.setUserNumber(1L);
+
 
         System.out.println(diaryVO);
         System.out.println("insert 메소드 확인");

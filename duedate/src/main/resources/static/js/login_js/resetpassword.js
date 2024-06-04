@@ -56,6 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const passwordInput = document.getElementById(inputId);
         const isPasswordVisible = passwordInput.getAttribute("type") === "text";
         passwordInput.setAttribute("type", isPasswordVisible ? "password" : "text");
-        icon.src = isPasswordVisible ? "../login/images/hide.png" : "../login/images/visible.png";
+        icon.innerText = isPasswordVisible ? "visibility" : "visibility_off";
     };
 });

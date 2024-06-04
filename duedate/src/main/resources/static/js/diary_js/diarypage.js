@@ -29,8 +29,9 @@ const daysTag = document.querySelector(".days");
 const prevNextBtn = document.querySelectorAll(".rightCalendarMonth button");
 const rightGoToday = document.querySelector(".rightTodayButton");
 
+
 const selectDateNgo = document.querySelector("#datepicker");
-const selectDateNgoTodo = document.querySelector("#datepickerTodo");
+
 
 const renderCalendar = () => {
   let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
@@ -40,7 +41,7 @@ const renderCalendar = () => {
   let divLiTag = "";
 
   for (let i = firstDayofMonth; i > 0; i--) {
-    divLiTag += `<div>
+    divLiTag += `<div class="day">
         <li class="inactive">${lastDateofLastMonth - i + 1}</li>
       </div>`;
   }
@@ -53,13 +54,17 @@ const renderCalendar = () => {
             ? "active"
             : "";
     divLiTag += `<div id="dayOf${i}" class="day"><li class="${isToday}">${i}</li>
-        <span class="DiaryEmo${i}"></span>
-        <a class"${isToday}" class"newTodo"></a>
+          <div class="hidden__content content${i}">
+            <span class="todo__${i} todo_1" style="display:block"></span>
+            <span class="todo__${i} todo_1" style="display:block"></span>
+            <span class="todo__${i} todo_1" style="display:block"></span>
+            <span class="DiaryEmo${i}" style="display:block"></span>
+          </div>
         </div>`;
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
-    divLiTag += `<div>
+    divLiTag += `<div class="day">
         <li class="inactive">${i - lastDayofMonth + 1}</li>
       </div>`;
   }
@@ -138,8 +143,9 @@ submitBtn.addEventListener("click", () => {
   } else if (myDiaryDetail.value == "") {
     alert("일기 내용을 작성해 주세요");
   } else {
-    alert("작성 완료");
     return true;
+
+    alert("작성 완료");
 
     /*다이어리 데이트 벨류와 달력의 날짜가 같으면
     dayOf${o}아이디에 class="day ${haveDiary}" 추가
@@ -291,6 +297,11 @@ const DiaryEmo = document.querySelectorAll(".days span");
 const newTodo = document.querySelectorAll(".days a");
 const dayof = document.querySelectorAll(".day");
 // const leftCalDiarychk = document.querySelectorAll(".leftDays li")
+const selectDateNgoTodo = document.querySelector("#datepickerTodo");
+
+const category1 = document.querySelector("#category1");
+
+
 const categoryTodo1 = document.querySelector("category1");
 const submitTodoBtn1 = document.querySelector("#submitTodo1");
 const categoryName1 = document.querySelector("#categoryName1");
@@ -302,22 +313,25 @@ const submitTodoBtn3 = document.querySelector("#submitTodo3");
 
 submitTodoBtn1.addEventListener("click", () => {
   const submitTodoCategory1 = () => {
-    if (myDiaryDate.value == "") {
+    if (selectDateNgoTodo.value == "") {
       alert("날짜를 작성해 주세요");
     } else if (categoryName1.value == "") {
       alert("카테고리 이름을 작성해주세요");
+    }else if(category1.style.backgroundColor == ""){
+      alert("카테고리의 색상을 선택해주세요");
     } else {
       alert("작성 완료");
-      for (let k = 1; k <= 31; k++) {
-        if (
-            myDiaryDate.value ===
-            date.getFullYear() + "-" + (currMonth + 1) + "-" + k
-        ) {
-          dayof[k - 1].className = "day haveDiary";
-          newTodo[k - 1].innerText = categoryName1.value;
-        } else {
-        }
-      }
+      return true;
+      // for (let k = 1; k <= 31; k++) {
+      //   if (
+      //       myDiaryDate.value ===
+      //       date.getFullYear() + "-" + (currMonth + 1) + "-" + k
+      //   ) {
+      //     dayof[k - 1].className = "day haveDiary";
+      //     newTodo[k - 1].innerText = categoryName1.value;
+      //   } else {
+      //   }
+      // }
     }
   };
   submitTodoCategory1();
